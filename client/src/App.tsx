@@ -5,7 +5,7 @@ import { useLocation, useRoutes } from "react-router-dom";
 import theme from "./lib/mui/theme";
 import Home from "./pages/Home";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "react-query-devtools";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +17,7 @@ const App: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools />
+      <ReactQueryDevtools initialIsOpen={false} />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {React.cloneElement(element, { key: location.pathname })}
