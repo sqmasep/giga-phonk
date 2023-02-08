@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('fichier');
+            $table->string('file');
             $table->string('cover');
             $table->string('genre');
-            $table->integer('utilisateur_id')->default(1);
+            $table->integer('by')->default(1);
         });
     }
 

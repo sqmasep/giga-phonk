@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
         Chanson::create ([
              'name' => 'titre',
-             'fichier' => 'test@example.com',
+             'file' => 'test@example.com',
              'cover' => 'test@example.com',
              'genre' => 'test@example.com'
          ]);

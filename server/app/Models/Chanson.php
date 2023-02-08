@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Chanson extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'fichier', 'cover', 'genre'];
+    protected $fillable = ['name', 'file', 'cover', 'genre'];
     protected $table = 'chanson';
 }
