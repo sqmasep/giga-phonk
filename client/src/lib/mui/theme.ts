@@ -6,14 +6,15 @@ const theme = createTheme({
     background: {
       default: "#070933",
     },
+    mode: "dark",
     primary: {
       main: deepPurple[300],
     },
   },
   typography: {
+    fontFamily: "Neue Plak",
     allVariants: {
-      fontFamily: "Neue Plak",
-      fontSize: "1.125rem",
+      fontStretch: "semi-expanded",
     },
   },
 });
