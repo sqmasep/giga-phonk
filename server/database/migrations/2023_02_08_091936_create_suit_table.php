@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('suit', function (Blueprint $table) {
+        Schema::create('follow', function (Blueprint $table) {
             $table->id();
-            $table->integer('suiveur_id');
-            $table->integer('suivi_id');
+            $table->integer('follower_id');
+            $table->integer('followed_id');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suit');
+        Schema::dropIfExists('follow');
     }
 };
