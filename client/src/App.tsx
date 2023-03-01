@@ -11,6 +11,7 @@ import { AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import NewUser from "./pages/users/NewUser";
 import Home from "./pages/Home";
+import MusicPlayer from "./components/MusicPlayer";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +59,7 @@ const App: React.FC = () => {
         <Navbar />
         <AnimatePresence>
           {React.cloneElement(element, { key: location.pathname })}
+          <MusicPlayer />
         </AnimatePresence>
       </ThemeProvider>
     </QueryClientProvider>
