@@ -20,18 +20,28 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// SONGS
+///////// SONGS ////////////
 
-
+//GET ALL SONGS
 Route::get('/songs', function(){
     return App\Models\Chanson::all();
 });
 
+
+//GET SONG BY ID
 Route::get('/songs/{id}', function($id){
     return App\Models\Chanson::find($id);
 });
 
-Route::delete('/songs/delete/{id}', function($id){
+//GET PLAYLISTS WHERE THE SONG IS FEATURED
+Route::get('/songs/{id}/playlists', function($id){
+    $song = App\Models\Chanson::findOrFail($id);
+    return $song->playlists;
+});
+
+
+//DELETE SONG
+Route::delete('/songs/{id}', function($id){
     $song = App\Models\Chanson::find($id);
 
     if ($chanson == false){
@@ -43,7 +53,8 @@ Route::delete('/songs/delete/{id}', function($id){
 });
 
 
-Route::post('/songs/add/', function(Request $request){
+//ADD SONG
+Route::post('/songs', function(Request $request){
     $song = App\Models\Chanson::create([
         "name" => $request->input('name'),
         "file" => $request->input('file'),
@@ -53,9 +64,18 @@ Route::post('/songs/add/', function(Request $request){
 
     return response($song, 201);
 });
+////////////////////////////////
 
-//USERS
 
+
+////////USERS/////////
+
+//GET ALL USERS 
+Route::get('/users', function(){
+    return App\Models\User::all();
+});
+
+//GET USER BY ID
 Route::get('/users/{id}', function($id){
 
     $user = App\Models\User::find($id);
@@ -67,7 +87,8 @@ Route::get('/users/{id}', function($id){
     return $user;
 });
 
-Route::delete('/users/delete/{id}', function($id){
+//DELETE USER
+Route::delete('/users/{id}', function($id){
     $user = App\Models\User::find($id);
 
     if($user == false){
@@ -78,11 +99,8 @@ Route::delete('/users/delete/{id}', function($id){
     return response("", 202);
 });
 
-Route::get('/users/{id}/songs', function($id){
-    return Chanson::where('user_id', $id)->get();
-});
-
-Route::post('/users/new', function(Request $request){
+//CREATE USER
+Route::post('/users', function(Request $request){
     $user = App\Models\User::create([
         "name" => $request->input('name'), 
         "email" => $request->input('email'),
@@ -91,3 +109,34 @@ Route::post('/users/new', function(Request $request){
 
     return response($user, 201);
 });
+
+///////////////////////////
+
+
+
+/////////PLAYLISTS/////////
+
+
+//GET ALL PLAYLISTS
+Route::get('/playlists', function(){
+    return App\Models\Playlist::all();
+});
+
+
+//GET SPECIFIC PLAYLIST
+Route::get('/playlists/{id}', function(){
+    return App\Models\Playlist::find($id);
+});
+
+
+//GET SONGS THAT ARE IN A SPECIFIC PLAYLIST
+Route::get('playlists/{id}/songs', function($id){
+ $playlist= App\Models\Playlist::findOrFail($id);
+ return $playlist->chansons;
+});
+
+
+//////////////////////////
+
+?>
+
