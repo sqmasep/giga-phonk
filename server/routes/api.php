@@ -59,10 +59,18 @@ Route::delete('/songs/{id}', function($id){
 
 //ADD SONG
 Route::post('/songs', function(Request $request){
+
+    $c = $request->file('cover')->hashName();
+    $f = $request->file('song')->hashName();
+
+    $request->file('cover')->move('upload/cover', $c);
+    $request->file('song')->move('upload/music', $f);
+
+
     $song = App\Models\Chanson::create([
         "name" => $request->input('name'),
-        "file" => $request->input('file'),
-        "cover" => $request->input('cover'),
+        "fileUrl" => 'upload/'.$f,
+        "coverURL" => 'upload/'.$c,
         "artist" => $request->input('artist'),
     ]);
 

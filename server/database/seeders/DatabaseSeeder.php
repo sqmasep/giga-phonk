@@ -21,36 +21,36 @@ class DatabaseSeeder extends Seeder
 
         $chanson1 = Chanson::create ([
              'name' => 'Bangarang',
-             'file' => 'test@example.com',
-             'cover' => 'test@example.com',
+             'fileUrl' => 'test',
+             'coverUrl' => 'test@example.com',
              'artist' => 'Skrillex'
          ]);
 
          $chanson2 = Chanson::create ([
             'name' => 'Les Sardines',
-            'file' => 'test@example.com',
-            'cover' => 'test@example.com',
+            'fileUrl' => 'test',
+            'coverUrl' => 'test@example.com',
             'artist' => 'Patricke Sebastien'
         ]);
 
         $chanson3 = Chanson::create ([
             'name' => 'Quand il pète il troue son slip',
-            'file' => 'test@example.com',
-            'cover' => 'test@example.com',
+            'fileUrl' => 'test',
+            'coverUrl' => 'test@example.com',
             'artist' => 'Sébastien Patrick'
         ]);
 
         $chanson4 = Chanson::create ([
             'name' => 'Can we get more Machine Gun Psypsystyle',
-            'file' => 'test@example.com',
-            'cover' => 'test@example.com',
+            'fileUrl' => 'test',
+            'coverUrl' => 'test@example.com',
             'artist' => 'Camellia'
         ]);
 
         $chanson5 = Chanson::create ([
             'name' => 'Racemization',
-            'file' => 'test@example.com',
-            'cover' => 'test@example.com',
+            'fileUrl' => 'test',
+            'coverUrl' => 'test@example.com',
             'artist' => 'Camellia'
         ]);
 

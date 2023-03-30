@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('file');
-            $table->string('cover');
+            $table->string('fileUrl');
+            $table->string('coverUrl');
             $table->string('artist');
         });
     }
