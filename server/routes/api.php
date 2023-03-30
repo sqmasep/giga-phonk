@@ -39,6 +39,10 @@ Route::get('/songs/{id}/playlists', function($id){
     return $song->playlists;
 });
 
+//GET SONG BY ARTIST 
+Route::get('songs/artist/{name}', function($name){
+    return App\Models\Chanson::where('artist', $name)->get();
+});
 
 //DELETE SONG
 Route::delete('/songs/{id}', function($id){
@@ -59,7 +63,7 @@ Route::post('/songs', function(Request $request){
         "name" => $request->input('name'),
         "file" => $request->input('file'),
         "cover" => $request->input('cover'),
-        "genre" => $request->input('genre')
+        "artist" => $request->input('artist'),
     ]);
 
     return response($song, 201);
@@ -134,6 +138,32 @@ Route::get('playlists/{id}/songs', function($id){
  $playlist= App\Models\Playlist::findOrFail($id);
  return $playlist->chansons;
 });
+
+//CREATE A PLAYLIST 
+Route::post('playlists', function(Request $request){
+    $playlist = App\Models\Playlist::create([
+        'name' => $request->input('name'),
+        'playlistCover' => $request->input('playlistCover'),
+        'official' => $request->input('official'),
+    ]);
+});
+
+//LINK A SONG TO A PLAYLIST
+Route::get('link/{song_id}/{playlist_id}', function($song_id, $playlist_id){
+    $playlist = App\Models\Playlist::findOrFail($playlist_id);
+    $song = App\Models\Chanson::findOrFail($song_id);
+    $song->playlists()->attach([$playlist->id]);
+});
+
+
+//UNLINK A SONG AND A PLAYLIST
+Route::get('unlink/{song_id}/{playlist_id}', function($song_id, $playlist_id){
+    $playlist = App\Models\Playlist::findOrFail($playlist_id);
+    $song = App\Models\Chanson::findOrFail($song_id);
+    $song->playlists()->detach([$playlist->id]);
+})
+
+
 
 
 //////////////////////////
