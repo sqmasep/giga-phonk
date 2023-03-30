@@ -21,36 +21,36 @@ class DatabaseSeeder extends Seeder
 
         $chanson1 = Chanson::create ([
              'name' => 'Bangarang',
-             'fileUrl' => 'test',
-             'coverUrl' => 'test@example.com',
+             'fileUrl' => 'upload/music/kordhell_1.mp3',
+            'coverUrl' => 'upload/cover/cover_1.png',
              'artist' => 'Skrillex'
          ]);
 
          $chanson2 = Chanson::create ([
             'name' => 'Les Sardines',
-            'fileUrl' => 'test',
-            'coverUrl' => 'test@example.com',
+            'fileUrl' => 'upload/music/kordhell_1.mp3',
+            'coverUrl' => 'upload/cover/cover_1.png',
             'artist' => 'Patricke Sebastien'
         ]);
 
         $chanson3 = Chanson::create ([
             'name' => 'Quand il pète il troue son slip',
-            'fileUrl' => 'test',
-            'coverUrl' => 'test@example.com',
+            'fileUrl' => 'upload/music/kordhell_1.mp3',
+            'coverUrl' => 'upload/cover/cover_1.png',
             'artist' => 'Sébastien Patrick'
         ]);
 
         $chanson4 = Chanson::create ([
             'name' => 'Can we get more Machine Gun Psypsystyle',
-            'fileUrl' => 'test',
-            'coverUrl' => 'test@example.com',
+            'fileUrl' => 'upload/music/kordhell_1.mp3',
+            'coverUrl' => 'upload/cover/cover_1.png',
             'artist' => 'Camellia'
         ]);
 
         $chanson5 = Chanson::create ([
             'name' => 'Racemization',
-            'fileUrl' => 'test',
-            'coverUrl' => 'test@example.com',
+            'fileUrl' => 'upload/music/kordhell_1.mp3',
+            'coverUrl' => 'upload/cover/cover_1.png',
             'artist' => 'Camellia'
         ]);
 
