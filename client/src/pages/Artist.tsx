@@ -17,8 +17,11 @@ const Artist: React.FC = () => {
         {artistName}
       </Typography>
 
+      <Typography variant='h3' component='h2' mt={4}>
+        Ses musiques
+      </Typography>
       {data && (
-        <GridList mt={4} spacing={2} of={data.data} gridKey={item => item.id}>
+        <GridList mt={2} spacing={2} of={data.data} gridKey={item => item.id}>
           {({ coverUrl, fileUrl, name }) => (
             <MusicCard image={coverUrl} songUrl={fileUrl} title={name} />
           )}

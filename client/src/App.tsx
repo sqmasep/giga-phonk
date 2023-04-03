@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import React from "react";
 import { useLocation, useRoutes } from "react-router-dom";
 import theme from "./lib/mui/theme";
@@ -101,9 +101,11 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Navbar />
-        <AnimatePresence mode='wait'>
-          {React.cloneElement(element, { key: location.pathname })}
-        </AnimatePresence>
+        <Box py={16}>
+          <AnimatePresence mode='wait'>
+            {React.cloneElement(element, { key: location.pathname })}
+          </AnimatePresence>
+        </Box>
         <MusicPlayer />
       </ThemeProvider>
     </QueryClientProvider>

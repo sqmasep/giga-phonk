@@ -46,7 +46,7 @@ const MusicCard: React.FC<CardProps> = ({
             <Typography color='gray'>{artist}</Typography>
           </Link>
           <Typography>{duration}</Typography>
-          <IconButton onClick={handlePlay}>
+          <IconButton sx={{ mt: 1 }} onClick={handlePlay}>
             <PlayArrow />
           </IconButton>
         </Stack>

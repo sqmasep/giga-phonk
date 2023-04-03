@@ -17,8 +17,11 @@ import {
   intervalToDuration,
   lightFormat,
 } from "date-fns";
+import { motion } from "framer-motion";
 
 interface PlayerProps {}
+
+const MotionBox = motion(Box);
 
 const MusicPlayer: React.FC<PlayerProps> = ({}) => {
   const { src, title } = usePlayingMusicStore();
@@ -45,7 +48,7 @@ const MusicPlayer: React.FC<PlayerProps> = ({}) => {
   const formattedDuration = formatDuration(
     formatSecondsToInterval(state.duration)
   );
-  // const formattedTime = formatDuration(state.)
+  const formattedTime = formatDuration(formatSecondsToInterval(state.time));
 
   const handleChange = (
     event: Event,
@@ -64,14 +67,16 @@ const MusicPlayer: React.FC<PlayerProps> = ({}) => {
   if (!src.length) return null;
 
   return (
-    <Box
+    <MotionBox
       width='100%'
       py={3}
       position='fixed'
       bottom={0}
       left={0}
-      borderTop={theme => `1px solid ${theme.palette.primary.main}`}
+      borderTop={theme => `1px solid ${theme.palette.primary.light}`}
       sx={{ backgroundColor: theme => theme.palette.background.default }}
+      initial={{ y: 100 }}
+      animate={{ y: 0 }}
     >
       <Container>
         <Typography>{title}</Typography>
@@ -92,6 +97,7 @@ const MusicPlayer: React.FC<PlayerProps> = ({}) => {
           {audio}
           {state && (
             <>
+              <Box width={80}>{formattedTime}</Box>
               <Slider
                 value={state.time}
                 onChange={handleChange}
@@ -103,7 +109,7 @@ const MusicPlayer: React.FC<PlayerProps> = ({}) => {
           )}
         </Stack>
       </Container>
-    </Box>
+    </MotionBox>
   );
 };
 

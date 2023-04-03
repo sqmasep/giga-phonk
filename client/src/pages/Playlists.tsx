@@ -16,7 +16,7 @@ const Playlists: React.FC = () => {
 
   return (
     <Container>
-      <Typography variant='h2' component='h1'>
+      <Typography variant='h2' component='h1' fontWeight={700}>
         Playlists du moment
       </Typography>
 
