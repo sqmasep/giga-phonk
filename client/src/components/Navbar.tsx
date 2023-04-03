@@ -1,3 +1,4 @@
+import { List, TrendingUp } from "@mui/icons-material";
 import { Box, Button, Container, Stack } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -27,6 +28,7 @@ const Navbar: React.FC = () => {
           />
           <Stack direction='row' gap={2}>
             <Button
+              startIcon={<List />}
               size='large'
               component={Link}
               to='/playlists'
@@ -34,7 +36,13 @@ const Navbar: React.FC = () => {
             >
               Playlists
             </Button>
-            <Button size='large' component={Link} to='/' variant='contained'>
+            <Button
+              startIcon={<TrendingUp />}
+              size='large'
+              component={Link}
+              to='/'
+              variant='contained'
+            >
               Populaire
             </Button>
           </Stack>
