@@ -78,14 +78,14 @@ class DatabaseSeeder extends Seeder
 
         $chanson9 = Chanson::create ([
             'name' => 'MURDER IN MY MIND',
-            'fileUrl' => 'upload/music/kordhell_1.mp3',
+            'fileUrl' => 'upload/music/kordhell_2.mp3',
             'coverUrl' => 'upload/cover/cover_5.jpg',
             'artist' => 'KORDHELL'
         ]);
 
         $chanson10 = Chanson::create ([
             'name' => 'KILLERS FROM THE NORTHSIDE',
-            'fileUrl' => 'upload/music/kordhell_2.mp3',
+            'fileUrl' => 'upload/music/kordhell_1.mp3',
             'coverUrl' => 'upload/cover/cover_1.png',
             'artist' => 'KORDHELL'
         ]);
