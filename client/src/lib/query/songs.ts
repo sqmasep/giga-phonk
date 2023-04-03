@@ -1,5 +1,12 @@
-import axios from "axios";
+import { axios } from "./common";
+import { Song } from "./db";
 
-export const keys = {
+const keys = {
   all: ["songs"],
 };
+
+const queries = {
+  all: () => axios.get<Song[]>("/songs"),
+};
+
+export const songs = { keys, queries };

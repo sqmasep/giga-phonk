@@ -21,9 +21,9 @@ import {
 interface PlayerProps {}
 
 const MusicPlayer: React.FC<PlayerProps> = ({}) => {
-  const { src } = usePlayingMusicStore();
+  const { src, title } = usePlayingMusicStore();
   const [audio, state, controls, ref] = useAudio({
-    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    src,
     autoPlay: true,
   });
 
@@ -71,9 +71,11 @@ const MusicPlayer: React.FC<PlayerProps> = ({}) => {
       bottom={0}
       left={0}
       borderTop={theme => `1px solid ${theme.palette.primary.main}`}
+      sx={{ backgroundColor: theme => theme.palette.background.default }}
     >
       <Container>
-        musicstore src: {src}
+        {src}
+        <Typography>{title}</Typography>
         <Stack
           direction='row'
           gap={2}
