@@ -15,21 +15,29 @@ interface CardProps {
   image: string;
   artist?: string;
   duration?: number;
+  songUrl: string;
 }
 
-const MusicCard: React.FC<CardProps> = ({ image, title, duration, artist }) => {
+const MusicCard: React.FC<CardProps> = ({
+  image,
+  title,
+  duration,
+  artist,
+  songUrl,
+}) => {
   const { setSrc, setImage, setTitle } = usePlayingMusicStore();
   const handlePlay = () => {
-    setSrc("music.mp3");
+    setSrc(songUrl);
     setImage(image);
     setTitle(title);
   };
+
   return (
     <Card>
       <CardContent>
         <Stack alignItems='start'>
-          <img height='194' src={image} alt={title} />
-          <Typography variant='h6' component='p'>
+          <CardMedia component='img' height='194' src={image} />
+          <Typography mt={2} variant='h5' component='p'>
             {title}
           </Typography>
           <Typography variant='subtitle1' color='gray'>

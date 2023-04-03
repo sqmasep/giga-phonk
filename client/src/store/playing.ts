@@ -10,10 +10,10 @@ interface PlayingMusicStore {
 }
 
 const usePlayingMusicStore = create<PlayingMusicStore>()((set, get) => ({
-  src: "s",
+  src: "",
   image: null,
   title: null,
-  setSrc: src => set(state => ({ src })),
+  setSrc: src => set(state => ({ src: `/${src}` })),
   setImage: image => set(state => ({ image })),
   setTitle: title => set(state => ({ title })),
 }));
