@@ -74,7 +74,6 @@ const MusicPlayer: React.FC<PlayerProps> = ({}) => {
       sx={{ backgroundColor: theme => theme.palette.background.default }}
     >
       <Container>
-        {src}
         <Typography>{title}</Typography>
         <Stack
           direction='row'

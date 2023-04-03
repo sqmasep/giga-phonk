@@ -5,28 +5,90 @@ import theme from "./lib/mui/theme";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Playlist from "./pages/Playlist";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import SignUp from "./pages/users/SignUp";
 import Home from "./pages/Home";
 import MusicPlayer from "./components/MusicPlayer";
 import SignIn from "./pages/users/SignIn";
 import Playlists from "./pages/Playlists";
+import Artist from "./pages/Artist";
 
 const queryClient = new QueryClient();
 
+const AnimatedPage: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return (
+    <motion.div
+      initial={{
+        y: 50,
+        scale: 0.95,
+        transformOrigin: "top",
+        opacity: 0,
+      }}
+      animate={{
+        y: 0,
+        scale: 1,
+        transformOrigin: "top",
+        opacity: 1,
+      }}
+      exit={{
+        y: -50,
+        scale: 0.95,
+        transformOrigin: "top",
+        opacity: 0,
+        transition: { duration: 0.1 },
+      }}
+      transition={{ duration: 0.35 }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 const App: React.FC = () => {
   const element = useRoutes([
-    { path: "/", element: <Home /> },
-    { path: "/playlists", element: <Playlists /> },
+    {
+      path: "/",
+      element: (
+        <AnimatedPage>
+          <Home />
+        </AnimatedPage>
+      ),
+    },
+    {
+      path: "/playlists",
+      element: (
+        <AnimatedPage>
+          <Playlists />
+        </AnimatedPage>
+      ),
+    },
     {
       path: "/playlists/:playlistId",
-      element: <Playlist />,
+      element: (
+        <AnimatedPage>
+          <Playlist />
+        </AnimatedPage>
+      ),
     },
 
     {
       path: "/songs/:songId",
-      element: <Playlist />,
+      element: (
+        <AnimatedPage>
+          <Playlist />
+        </AnimatedPage>
+      ),
+    },
+    {
+      path: "/artists/:artistName",
+      element: (
+        <AnimatedPage>
+          <Artist />
+        </AnimatedPage>
+      ),
     },
   ]);
   const location = useLocation();
@@ -39,10 +101,10 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Navbar />
-        <AnimatePresence>
+        <AnimatePresence mode='wait'>
           {React.cloneElement(element, { key: location.pathname })}
-          <MusicPlayer />
         </AnimatePresence>
+        <MusicPlayer />
       </ThemeProvider>
     </QueryClientProvider>
   );

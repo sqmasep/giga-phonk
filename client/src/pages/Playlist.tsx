@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import React from "react";
 import { useParams } from "react-router-dom";
 
@@ -27,7 +28,7 @@ const MusicPreview: React.FC<{
   };
 
   return (
-    <Card>
+    <Card sx={{ p: 2 }}>
       <CardMedia src={coverUrl} />
       <CardContent>
         <Stack
@@ -36,8 +37,10 @@ const MusicPreview: React.FC<{
           width='100%'
           justifyContent='space-between'
         >
-          <Typography>{name}</Typography>
-          <IconButton onClick={handlePlay}>
+          <Typography variant='h5' component='h2'>
+            {name}
+          </Typography>
+          <IconButton size='large' onClick={handlePlay}>
             <PlayArrow />
           </IconButton>
         </Stack>
@@ -46,20 +49,54 @@ const MusicPreview: React.FC<{
   );
 };
 
+const MotionStack = motion(Stack);
+
+const variants: Record<"children" | "parent", Variants> = {
+  children: {
+    hidden: {
+      y: 50,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  },
+  parent: {
+    hidden: {
+      transition: {
+        when: "beforeChildren",
+      },
+    },
+    visible: {
+      transition: {
+        when: "afterChildren",
+        staggerChildren: 2,
+      },
+    },
+  },
+};
+
 const Playlist: React.FC = () => {
   const { playlistId = "" } = useParams();
   const { data } = useQuery(
     playlists.keys.byId(playlistId),
     playlists.queries.byId(playlistId)
   );
-
   return (
     <Container>
-      <Stack spacing={1}>
+      <MotionStack
+        variants={variants.parent}
+        initial='hidden'
+        animate='visible'
+        spacing={1}
+      >
         {data?.data.map(({ name, coverUrl, fileUrl }) => (
-          <MusicPreview coverUrl={coverUrl} name={name} songUrl={fileUrl} />
+          <motion.div variants={variants.children} key={name}>
+            <MusicPreview coverUrl={coverUrl} name={name} songUrl={fileUrl} />
+          </motion.div>
         ))}
-      </Stack>
+      </MotionStack>
     </Container>
   );
 };

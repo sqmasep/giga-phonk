@@ -24,9 +24,15 @@ const Playlists: React.FC = () => {
         <GridList mt={4} spacing={2} of={data.data} gridKey={item => item.id}>
           {({ name, updated_at, id }) => (
             <Card>
-              <CardActionArea component={Link} to={`/playlists/${id}`}>
+              <CardActionArea
+                sx={{ p: 2 }}
+                component={Link}
+                to={`/playlists/${id}`}
+              >
                 <CardContent>
-                  <Typography>{name}</Typography>
+                  <Typography variant='h5' component='h2'>
+                    {name}
+                  </Typography>
                   <Typography variant='caption' color='gray'>
                     Modifié il y a {formatToNow(new Date(updated_at))}
                   </Typography>
