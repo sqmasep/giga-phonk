@@ -22,56 +22,56 @@ class DatabaseSeeder extends Seeder
         $chanson1 = Chanson::create ([
              'name' => 'SUBWAY SURFERS',
              'fileUrl' => 'upload/music/rxdxvil_2.mp3',
-             'coverUrl' => 'upload/cover/cover_10.png',
+             'coverUrl' => 'upload/cover/cover_10.jpg',
              'artist' => 'RXDXVIL'
          ]);
 
          $chanson2 = Chanson::create ([
             'name' => 'ANGRY BIRDS',
             'fileUrl' => 'upload/music/rxdxvil_1.mp3',
-            'coverUrl' => 'upload/cover/cover_9.png',
+            'coverUrl' => 'upload/cover/cover_9.jpg',
             'artist' => 'RXDXVIL'
         ]);
 
         $chanson3 = Chanson::create ([
             'name' => 'RAPTURE',
             'fileUrl' => 'upload/music/interworld_1.mp3',
-            'coverUrl' => 'upload/cover/cover_2.png',
+            'coverUrl' => 'upload/cover/cover_2.jpg',
             'artist' => 'INTERWORLD'
         ]);
 
         $chanson4 = Chanson::create ([
             'name' => 'METAMORPHOSIS',
             'fileUrl' => 'upload/music/interworld_2.mp3',
-            'coverUrl' => 'upload/cover/cover_3.png',
+            'coverUrl' => 'upload/cover/cover_3.jpg',
             'artist' => 'INTERWORLD'
         ]);
 
         $chanson5 = Chanson::create ([
             'name' => 'PSYCHO CRUISE',
             'fileUrl' => 'upload/music/onimxru_2.mp3',
-            'coverUrl' => 'upload/cover/cover_6.png',
+            'coverUrl' => 'upload/cover/cover_6.jpg',
             'artist' => 'ONIMXRU'
         ]);
 
         $chanson6 = Chanson::create ([
             'name' => 'SHADOW',
             'fileUrl' => 'upload/music/onimxru_1.mp3',
-            'coverUrl' => 'upload/cover/cover_7.png',
+            'coverUrl' => 'upload/cover/cover_7.jpg',
             'artist' => 'ONIMXRU'
         ]);
 
         $chanson7 = Chanson::create ([
             'name' => 'NECRONOMICON',
             'fileUrl' => 'upload/music/shadxbxrn_1.mp3',
-            'coverUrl' => 'upload/cover/cover_8.png',
+            'coverUrl' => 'upload/cover/cover_8.jpg',
             'artist' => 'SHADXBXRN'
         ]);
 
         $chanson8 = Chanson::create ([
             'name' => "CAN'T STOP",
             'fileUrl' => 'upload/music/shadxbxrn_1.mp3',
-            'coverUrl' => 'upload/cover/cover_4.png',
+            'coverUrl' => 'upload/cover/cover_4.jpg',
             'artist' => 'SHADXBXRN'
         ]);
 
@@ -79,7 +79,7 @@ class DatabaseSeeder extends Seeder
         $chanson9 = Chanson::create ([
             'name' => 'MURDER IN MY MIND',
             'fileUrl' => 'upload/music/kordhell_1.mp3',
-            'coverUrl' => 'upload/cover/cover_5.png',
+            'coverUrl' => 'upload/cover/cover_5.jpg',
             'artist' => 'KHORDELL'
         ]);
 
