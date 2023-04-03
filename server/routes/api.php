@@ -27,7 +27,6 @@ Route::get('/songs', function(){
     return App\Models\Chanson::all();
 });
 
-
 //GET SONG BY ID
 Route::get('/songs/{id}', function($id){
     return App\Models\Chanson::find($id);
@@ -56,7 +55,6 @@ Route::delete('/songs/{id}', function($id){
     return response("", 202);
 });
 
-
 //ADD SONG
 Route::post('/songs', function(Request $request){
 
@@ -76,6 +74,7 @@ Route::post('/songs', function(Request $request){
 
     return response($song, 201);
 });
+
 ////////////////////////////////
 
 
@@ -128,18 +127,15 @@ Route::post('/users', function(Request $request){
 
 /////////PLAYLISTS/////////
 
-
 //GET ALL PLAYLISTS
 Route::get('/playlists', function(){
     return App\Models\Playlist::all();
 });
 
-
 //GET SPECIFIC PLAYLIST
 Route::get('/playlists/{id}', function(){
     return App\Models\Playlist::find($id);
 });
-
 
 //GET SONGS THAT ARE IN A SPECIFIC PLAYLIST
 Route::get('playlists/{id}/songs', function($id){
@@ -163,7 +159,6 @@ Route::get('link/{song_id}/{playlist_id}', function($song_id, $playlist_id){
     $song->playlists()->attach([$playlist->id]);
 });
 
-
 //UNLINK A SONG AND A PLAYLIST
 Route::get('unlink/{song_id}/{playlist_id}', function($song_id, $playlist_id){
     $playlist = App\Models\Playlist::findOrFail($playlist_id);
@@ -171,10 +166,6 @@ Route::get('unlink/{song_id}/{playlist_id}', function($song_id, $playlist_id){
     $song->playlists()->detach([$playlist->id]);
 })
 
-
-
-
 //////////////////////////
-
 ?>
 

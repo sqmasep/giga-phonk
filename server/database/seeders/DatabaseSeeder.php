@@ -20,57 +20,114 @@ class DatabaseSeeder extends Seeder
         
 
         $chanson1 = Chanson::create ([
-             'name' => 'Bangarang',
-             'fileUrl' => 'upload/music/kordhell_1.mp3',
-            'coverUrl' => 'upload/cover/cover_1.png',
-             'artist' => 'Skrillex'
+             'name' => 'Subway Surfers Phonk',
+             'fileUrl' => 'upload/music/rxdxvil_2.mp3',
+             'coverUrl' => 'upload/cover/cover_1.png',
+             'artist' => 'RXDXVIL'
          ]);
 
          $chanson2 = Chanson::create ([
-            'name' => 'Les Sardines',
-            'fileUrl' => 'upload/music/kordhell_1.mp3',
+            'name' => 'Angry Birds Phonk',
+            'fileUrl' => 'upload/music/rxdxvil_1.mp3',
             'coverUrl' => 'upload/cover/cover_1.png',
-            'artist' => 'Patricke Sebastien'
+            'artist' => 'RXDXVIL'
         ]);
 
         $chanson3 = Chanson::create ([
-            'name' => 'Quand il pète il troue son slip',
-            'fileUrl' => 'upload/music/kordhell_1.mp3',
+            'name' => 'RAPTURE',
+            'fileUrl' => 'upload/music/interworld_1.mp3',
             'coverUrl' => 'upload/cover/cover_1.png',
-            'artist' => 'Sébastien Patrick'
+            'artist' => 'INTERWORLD'
         ]);
 
         $chanson4 = Chanson::create ([
-            'name' => 'Can we get more Machine Gun Psypsystyle',
-            'fileUrl' => 'upload/music/kordhell_1.mp3',
+            'name' => 'METAMORPHOSIS',
+            'fileUrl' => 'upload/music/interworld_2.mp3',
             'coverUrl' => 'upload/cover/cover_1.png',
-            'artist' => 'Camellia'
+            'artist' => 'INTERWORLD'
         ]);
 
         $chanson5 = Chanson::create ([
-            'name' => 'Racemization',
-            'fileUrl' => 'upload/music/kordhell_1.mp3',
+            'name' => 'PSYCHO CRUISE',
+            'fileUrl' => 'upload/music/onimxru_2.mp3',
             'coverUrl' => 'upload/cover/cover_1.png',
-            'artist' => 'Camellia'
+            'artist' => 'ONIMXRU'
+        ]);
+
+        $chanson6 = Chanson::create ([
+            'name' => 'SHADOW',
+            'fileUrl' => 'upload/music/onimxru_1.mp3',
+            'coverUrl' => 'upload/cover/cover_1.png',
+            'artist' => 'ONIMXRU'
+        ]);
+
+        $chanson7 = Chanson::create ([
+            'name' => 'NECRONOMICON',
+            'fileUrl' => 'upload/music/shadxbxrn_1.mp3',
+            'coverUrl' => 'upload/cover/cover_1.png',
+            'artist' => 'SHADXBXRN'
+        ]);
+
+        $chanson8 = Chanson::create ([
+            'name' => "CAN'T STOP",
+            'fileUrl' => 'upload/music/shadxbxrn_1.mp3',
+            'coverUrl' => 'upload/cover/cover_1.png',
+            'artist' => 'SHADXBXRN'
+        ]);
+
+
+        $chanson9 = Chanson::create ([
+            'name' => 'MURDER IN MY MIND',
+            'fileUrl' => 'upload/music/khordell_1.mp3',
+            'coverUrl' => 'upload/cover/cover_1.png',
+            'artist' => 'KHORDELL'
+        ]);
+
+        $chanson10 = Chanson::create ([
+            'name' => 'KILLERS FROM THE NORTHSIDE',
+            'fileUrl' => 'upload/music/khordell_2.mp3',
+            'coverUrl' => 'upload/cover/cover_1.png',
+            'artist' => 'KHORDELL'
         ]);
 
 
          $playlist1 = Playlist::create([
-            'name' => 'Top 5 of the week',
+            'name' => 'Discover: KHORDELL',
             'official' => true,
          ]);
 
 
          $playlist2 = Playlist::create([
-            'name' => 'La Déconne',
+            'name' => 'Discover: SHADXBXRN',
             'official' => true,
          ]);
 
-         $chanson1->playlists()->attach([$playlist1->id]);
-         $chanson2->playlists()->attach([$playlist2->id]);
-         $chanson3->playlists()->attach([$playlist2->id]);
-         $chanson4->playlists()->attach([$playlist1->id]);
-         $chanson5->playlists()->attach([$playlist1->id]);
+         $playlist3 = Playlist::create([
+            'name' => 'Discover: ONIMXRU',
+            'official' => true,
+         ]);
+
+         $playlist4 = Playlist::create([
+            'name' => 'Discover: INTERWORLD',
+            'official' => true,
+         ]);
+
+         $playlist5 = Playlist::create([
+            'name' => 'Discover: RXDXVIL',
+            'official' => true,
+         ]);
+
+         $chanson1->playlists()->attach([$playlist5->id]);
+         $chanson2->playlists()->attach([$playlist5->id]);
+         $chanson3->playlists()->attach([$playlist4->id]);
+         $chanson4->playlists()->attach([$playlist4->id]);
+         $chanson5->playlists()->attach([$playlist3->id]);
+         $chanson6->playlists()->attach([$playlist3->id]);
+         $chanson7->playlists()->attach([$playlist2->id]);
+         $chanson8->playlists()->attach([$playlist2->id]);
+         $chanson9->playlists()->attach([$playlist1->id]);
+         $chanson10->playlists()->attach([$playlist1->id]);
+         
          
 
     }
