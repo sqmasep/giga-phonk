@@ -63,16 +63,16 @@ class DatabaseSeeder extends Seeder
 
         $chanson7 = Chanson::create ([
             'name' => 'NECRONOMICON',
-            'fileUrl' => 'upload/music/shadxbxrn_1.mp3',
+            'fileUrl' => 'upload/music/shadxwbxrn_1.mp3',
             'coverUrl' => 'upload/cover/cover_8.jpg',
-            'artist' => 'SHADXBXRN'
+            'artist' => 'SHADWXBXRN'
         ]);
 
         $chanson8 = Chanson::create ([
             'name' => "CAN'T STOP",
-            'fileUrl' => 'upload/music/shadxbxrn_1.mp3',
+            'fileUrl' => 'upload/music/shadxwbxrn_2.mp3',
             'coverUrl' => 'upload/cover/cover_4.jpg',
-            'artist' => 'SHADXBXRN'
+            'artist' => 'SHADWXBXRN'
         ]);
 
 
