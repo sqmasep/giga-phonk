@@ -5,9 +5,11 @@ import {
   CardContent,
   CardMedia,
   IconButton,
+  Link,
   Stack,
   Typography,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import React from "react";
 
 interface CardProps {
@@ -36,15 +38,15 @@ const MusicCard: React.FC<CardProps> = ({
     <Card>
       <CardContent>
         <Stack alignItems='start'>
-          <CardMedia component='img' height='194' src={image} />
-          <Typography mt={2} variant='h5' component='p'>
+          <CardMedia component='img' height='194' src={`/${image}`} />
+          <Typography mt={2} variant='h5' component='p' fontWeight={900}>
             {title}
           </Typography>
-          <Typography variant='subtitle1' color='gray'>
-            {artist}
-          </Typography>
+          <Link component={RouterLink} to={`/artists/${artist}`}>
+            <Typography color='gray'>{artist}</Typography>
+          </Link>
           <Typography>{duration}</Typography>
-          <IconButton onClick={handlePlay}>
+          <IconButton sx={{ mt: 1 }} onClick={handlePlay}>
             <PlayArrow />
           </IconButton>
         </Stack>
